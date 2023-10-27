@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Uploader</title>
+</head>
+<body>
+
+    <div class="container">
+        <form ref='uploadForm'
+            id='uploadForm'
+            action='/upload'
+            method='post'
+            encType="multipart/form-data">
+            <input type="file" name="markdownfile" accept=".md" />
+            <input type='submit' class="submit" value='Upload!' />
+            <% if (typeof msg !== 'undefined') { %>
+                <p><%= msg %></p>
+            <% } %>
+        </form>
+
+    </div>     
+</body>
+
+
+<style>
+    
+    html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: mono;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p{
+    position: absolute;
+    top: -4rem;
+    left: .5rem;
+    color: #10b981;
+    text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: monospace;
+  font-size: 1.2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+input{
+   background-color: black;
+   border: 2px solid #10b981;
+   color: #10b981;
+   margin-bottom: 0.2rem;
+
+}
+
+.submit{
+    padding: 0.5rem;
+}
+
+.submit:hover{
+    background-color: #10b9812f;
+}
+
+::file-selector-button {
+  color: black;
+  background-color: #10b981;
+  padding: 0.5rem 1rem;
+  border: 2px solid #10b981;
+  font-weight: 600;
+  margin-right: 1rem;
+  font-family: monospace;
+}
+
+::file-selector-button:hover{
+    background-color: #10b98155;
+}
+
+
+</style>
+</html>
